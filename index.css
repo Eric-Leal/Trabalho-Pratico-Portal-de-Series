@@ -1,0 +1,56 @@
+
+.carousel-caption a {
+    text-decoration: none;
+    color: white;
+}
+
+.carousel-caption a:hover {
+    color: #ccc;
+}
+.carouseldesc {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block; 
+    margin: 0;
+  }
+
+.carousel-item img{
+    object-position: top;
+    height: 400px;
+    object-fit: cover;
+}
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+main{
+    padding-top: 80px;
+}
+.card-img-top {
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.data  {
+    font-size: 15px;
+}
+
+.linha{
+    border: 0; 
+    height: 2px; 
+    background-color: black;
+    margin: 10px 0; 
+}
+.perfil{
+    object-fit: cover;
+}
+.sobre{
+    font-weight: bold;
+}
+.destaque{
+    color: rgb(0, 162, 255);
+}

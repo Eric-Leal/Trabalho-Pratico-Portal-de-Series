@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serie</title>
+  <link rel="stylesheet" href="serie.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="Bootstrap" width="50" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link fs-5 fw-bold " href="explorador.html">Explorador</a>
+            </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div class="container">
+    <main>
+      <!-- Visão Geral -->
+      <h3>Visão Geral</h3>
+      <div class="linha mt-0 pt-0"></div>
+      <div class="container-fluid bg-light p-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+            <img src="images/Mandalorian.jpg" alt="Capa da série" class="mandalorian img-fluid ">
+          </div>
+          <div class="col-lg-9 col-md-6 col-sm-6 col-12 d-flex ">
+            <div class="align-self-center">
+              <h2>The Mandalorian</h2>
+              <p class="mb-2"><span class="destaque">Gênero:</span> Ação, Aventura, Sci-Fi</p>
+              <p class="mb-2"><span class="destaque">Data de Lançamento:</span> 12 de novembro de 2019</p>
+              <p class="mb-2"><span class="destaque">Sinopse:</span> Em The Mandalorian, acompanhamos a história de Din
+                Djarin (Pedro Pascal), um guerreiro solitário que trabalha como caçador de recompensas. Ele embarca numa
+                jornada pelos territórios esquecidos da galáxia, logo após a queda do Império e antes da criação da
+                temida Primeira Ordem.</p>
+              <p class="mb-2"><span class="destaque">Plataforma:</span> Disney+</p>
+              <p class="mb-2"><span class="destaque">Temporadas:</span> 3</p>
+              <button class="btn btn-primary mt-3">
+                <i class="fas fa-heart"></i> Favoritar Série
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel de cards do elenco para telas medias e superiores -->
+      <h3>Elenco</h3>
+      <div class="linha mt-0 pt-0"></div>
+      <div id="carouselExample" class="carousel slide d-none d-md-block bg-light">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row text-center">
+                <div class="col-md-6 col-lg-3">
+                  <div class="card ">
+                    <img src="images/Elenco/pedropascal.jpg" class="card-img-top elenco-img elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Pedro Pascal</h4>
+                      <p>The Mandalorian</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/katesackhoff.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Kate Sackhoff</h4>
+                      <p>Bo-Katan Kryze</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/carlweathers.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Carl Weathers</h4>
+                      <p>Greef Karga</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/emilyswallow.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Emily Swallow</h4>
+                      <p>Armorer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row text-center">
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/giancarlo.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Giancarlo Esposito</h4>
+                      <p>Moff Gideon</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/ginacarano.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Gina Carano</h4>
+                      <p>Cara Dune</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/rosariodawson.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Rosario Dawson</h4>
+                      <p>Ahsoka Tano</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                  <div class="card">
+                    <img src="images/Elenco/temueramorrison.jpeg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text mb-0">Temuera Morrison</h4>
+                      <p>Boba Fett</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
+      <!-- Carousel de cards de elenco para telas pequenas -->
+      <div id="carouselExampleIndicators" class="carousel slide d-md-none">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <div class="img-container">
+                      <img src="images/Elenco/pedropascal.jpg" class="card-img-top elenco-img" alt="...">
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-text">Pedro Pascal</h4>
+                      <p>The Mandalorian</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/katesackhoff.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Kate Sackhoff</h4>
+                      <p>Bo-Katan Kryze</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/carlweathers.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Carl Weathers</h4>
+                      <p>Greef Karga</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/emilyswallow.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Emily Swallow</h4>
+                      <p>Armorer</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/giancarlo.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Giancarlo Esposito</h4>
+                      <p>Moff Gideon</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/ginacarano.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Gina Carano</h4>
+                      <p>Cara Dune</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/rosariodawson.jpg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Rosario Dawson</h4>
+                      <p>Ahsoka Tano</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-8 ">
+                  <div class="card">
+                    <img src="images/Elenco/temueramorrison.jpeg" class="card-img-top elenco-img" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-text">Temuera Morrison</h4>
+                      <p>Boba Fett</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Temporadas e Episodios -->
+      <h3>Temporadas e Episodios</h3>
+      <div class="linha mt-0 pt-0 "></div>
+      <div class="container-fluid bg-light">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-4 col-8 d-flex d-sm-block justify-content-center">
+            <div class="card">
+              <img src="images/Capas/temporada1.jpg" class="card-img-top capa-img" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">Temporada 1</h4>
+                <p>2019 - 8 Episódios</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-8 d-flex d-sm-block justify-content-center">
+            <div class="card">
+              <img src="images/Capas/temporada2.jpg" class="card-img-top capa-img" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">Temporada 2</h4>
+                <p>2020 - 8 Episódios</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-8 d-flex d-sm-block justify-content-center">
+            <div class="card">
+              <img src="images/Capas/temporada3(2).jpg" class="card-img-top capa-img" alt="...">
+              <div class="card-body">
+                <h4 class="card-text">Temporada 3</h4>
+                <p>2023 - 8 Episódios</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

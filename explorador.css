@@ -1,0 +1,29 @@
+.linha{
+    border: 0; 
+    height: 2px; 
+    background-color: black;
+    margin: 10px 0; 
+}
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+main{
+    margin-top: 80px;
+}
+.series{
+    margin-top: 80px;
+}
+
+.card {
+    height: 400px; 
+}
+
+.card-img-top {
+    height: 200px; 
+    object-fit: cover; 
+}
+.data{
+    font-size: 14px;
+}
