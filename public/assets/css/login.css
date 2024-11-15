@@ -1,0 +1,206 @@
+/* Reset de estilo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Fundo neutro claro */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Container do login */
+#login {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Título */
+h3 {
+    color: #0aCAF0; /* Azul claro */
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo dos inputs */
+.input-form {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f69ae9; /* Borda rosa clara para os campos de entrada */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: border 0.3s;
+    background-color: #f0f9ff; /* Fundo claro, azul suave */
+}
+
+.input-form:focus {
+    border-color: #0aCAF0; /* Borda azul clara quando em foco */
+    background-color: #ffffff; /* Ao focar, fundo mais branco */
+}
+
+/* Estilo das labels */
+.form_div {
+    position: relative;
+    width: 100%;
+}
+
+.form_label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* Botões */
+.btn-primary {
+    background-color: #0aCAF0; /* Azul */
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #08a8c9; /* Azul mais escuro no hover */
+}
+
+/* Alterando a cor do botão de Registrar */
+#botao {
+    background-color: #f69ae9; /* Rosa */
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+#botao:hover {
+    background-color: #f57fcf; /* Rosa mais escuro no hover */
+}
+
+.modal-header {
+    background-color: #fff; /* Fundo branco para o cabeçalho */
+    color: #333; /* Cor do texto do cabeçalho */
+    border-bottom: none; /* Remover a borda inferior */
+}
+
+.modal-footer {
+    background-color: #fff; /* Fundo branco para o rodapé */
+    border-top: none; /* Remover a borda superior */
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Garantindo que o texto da modal fique visível */
+}
+
+.modal-content {
+    border-radius: 10px;
+    background-color: white; /* Fundo branco para a modal */
+    box-shadow: none; /* Remover qualquer sombra */
+}
+
+/* Estilo do botão de salvar no modal */
+#btn_salvar {
+    background-color: #f69ae9; /* Rosa para o botão de salvar */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#btn_salvar:hover {
+    background-color: #f57fcf; /* Rosa mais escuro no hover */
+}
+
+/* Botões de cancelar e outros na modal */
+.btn-secondary {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #bbb;
+}
+
+/* Estilo geral dos campos de entrada na modal de registrar */
+input[type="text"], input[type="password"] {
+    padding: 15px;
+    border: 2px solid #f69ae9; /* Borda rosa clara para os campos de entrada */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+    color: #333;
+    width: 100%;
+    transition: border 0.3s;
+    background-color: #fff; /* Fundo branco para os inputs */
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #0aCAF0; /* Borda azul clara quando em foco */
+    background-color: #ffffff; /* Fundo branco quando em foco */
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-div {
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modificações nos botões */
+#botao {
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    #login {
+        width: 90%;
+    }
+}
