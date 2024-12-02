@@ -5,12 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const URL = 'https://api.themoviedb.org/3/';
 
+import API_TOKEN from '../js/config.js';
+
 function carouselSeries() {
     fetch(`${URL}/trending/tv/week?language=pt-BR&page=1`, {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            
+            Authorization: `Bearer ${API_TOKEN}`
         }
     })
         .then(res => res.json())
@@ -20,7 +22,7 @@ function carouselSeries() {
                 let serie = data.results[i];
                 str += `
                     <div class="carousel-item ${i === 0 ? 'active' : ''}">
-                        <img src="https://image.tmdb.org/t/p/w500${serie.backdrop_path}" class="d-block w-100" alt="${serie.name}">
+                        <img src="https://image.tmdb.org/t/p/w1280${serie.backdrop_path}" class="d-block w-100" alt="${serie.name}">
                         <div class="carousel-caption d-none d-md-block">
                             <h5 class="carouseldesc">
                             <a href="pages/serie.html?id=${serie.id}">${serie.name}</a>
@@ -41,7 +43,7 @@ function novasSeries() {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            
+            Authorization: `Bearer ${API_TOKEN}`
         }
     })
         .then(res => res.json())
