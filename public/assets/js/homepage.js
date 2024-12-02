@@ -10,7 +10,7 @@ function carouselSeries() {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYmM0NjI0OTVkYTA1Njc2ZDdjMjJlYzUxMGRjODg3ZCIsIm5iZiI6MTczMDQ5MTA5OS41MTYsInN1YiI6IjY3MjUzMmRiOTAwMDQ4MTBmZWNiNDAwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gaPsIGk-oOxaKr9rgy2tcMQUNjsoJ09oq3KnVQMtREg'
+            
         }
     })
         .then(res => res.json())
@@ -41,7 +41,7 @@ function novasSeries() {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYmM0NjI0OTVkYTA1Njc2ZDdjMjJlYzUxMGRjODg3ZCIsIm5iZiI6MTczMDQ5MTA5OS41MTYsInN1YiI6IjY3MjUzMmRiOTAwMDQ4MTBmZWNiNDAwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gaPsIGk-oOxaKr9rgy2tcMQUNjsoJ09oq3KnVQMtREg'
+            
         }
     })
         .then(res => res.json())
@@ -54,7 +54,7 @@ function novasSeries() {
                     method: 'GET',
                     headers: {
                         accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYmM0NjI0OTVkYTA1Njc2ZDdjMjJlYzUxMGRjODg3ZCIsIm5iZiI6MTczMDQ5MTA5OS41MTYsInN1YiI6IjY3MjUzMmRiOTAwMDQ4MTBmZWNiNDAwNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gaPsIGk-oOxaKr9rgy2tcMQUNjsoJ09oq3KnVQMtREg'
+                    
                     }
                 })
                 .then(res => res.json())

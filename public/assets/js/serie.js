@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function carregarDadosSerie(id) {
-    const URL = `https://api.themoviedb.org/3/tv/${id}?api_key=3bc462495da05676d7c22ec510dc887d&language=pt-BR`;
+    const URL = `https://api.themoviedb.org/3/tv/${id}?&language=pt-BR`;
 
     fetch(URL)
         .then(resposta => resposta.json())
@@ -31,7 +31,7 @@ function carregarDadosSerie(id) {
 }
 
 function carregarElenco(id) {
-    const urlElenco = `https://api.themoviedb.org/3/tv/${id}/credits?api_key=3bc462495da05676d7c22ec510dc887d&language=pt-BR`;
+    const urlElenco = `https://api.themoviedb.org/3/tv/${id}/credits?&language=pt-BR`;
 
     fetch(urlElenco)
         .then(resposta => resposta.json())
