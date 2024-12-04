@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error('ID da série não encontrado');
     }
+    document.getElementById('btnFavoritarSerie').addEventListener('click', () => {
+        const plataforma = document.getElementById('plataforma').textContent.replace('Plataforma: ', '');
+        favoritarSerie(idSerie, plataforma);
+    });
 });
 
 function carregarDadosSerie(id) {
@@ -20,20 +24,18 @@ function carregarDadosSerie(id) {
             Authorization: `Bearer ${API_TOKEN}`
         }
     })
-    .then(resposta => {
-        if (!resposta.ok) {
-            throw new Error(`HTTP error! status: ${resposta.status}`);
-        }
-        return resposta.json();
-    })
+
+    .then(res => res.json())
     .then(dados => {
-        document.querySelector('#nomeSerie').innerText = dados.name;
-        document.querySelector('#imagemSerie').src = `https://image.tmdb.org/t/p/w500${dados.poster_path}`;
-        document.querySelector('#genero').innerHTML = `<span class="destaque">Gênero:</span> ${dados.genres.map(genero => genero.name).join(', ')}`;
-        document.querySelector('#dataLancamento').innerHTML = `<span class="destaque">Data de Lançamento:</span> ${dados.first_air_date}`;
-        document.querySelector('#sinopse').innerHTML = `<span class="destaque">Sinopse:</span> ${dados.overview}`;
-        document.querySelector('#plataforma').innerHTML = `<span class="destaque">Plataforma:</span> ${dados.networks.map(rede => rede.name).join(', ')}`;
-        document.querySelector('#temporadas').innerHTML = `<span class="destaque">Temporadas:</span> ${dados.number_of_seasons}`;
+        let plataforma = dados.networks.map(rede => rede.name).join(', ');
+
+        document.getElementById('nomeSerie').innerText = dados.name;
+        document.getElementById('imagemSerie').src = `https://image.tmdb.org/t/p/w500${dados.poster_path}`;
+        document.getElementById('genero').innerHTML = `<span class="destaque">Gênero:</span> ${dados.genres.map(genero => genero.name).join(', ')}`;
+        document.getElementById('dataLancamento').innerHTML = `<span class="destaque">Data de Lançamento:</span> ${dados.first_air_date}`;
+        document.getElementById('sinopse').innerHTML = `<span class="destaque">Sinopse:</span> ${dados.overview}`;
+        document.getElementById('plataforma').innerHTML = `<span class="destaque">Plataforma:</span> ${plataforma}`;
+        document.getElementById('temporadas').innerHTML = `<span class="destaque">Temporadas:</span> ${dados.number_of_seasons}`;
 
         carregarElenco(id);
     })
@@ -52,24 +54,20 @@ function carregarElenco(id) {
             Authorization: `Bearer ${API_TOKEN}`
         }
     })
-    .then(resposta => {
-        if (!resposta.ok) {
-            throw new Error(`HTTP error! status: ${resposta.status}`);
-        }
-        return resposta.json();
-    })
-    .then(dadosElenco => {
-        const listaDeAtores = dadosElenco.cast;
-        const tamanhoDoGrupo = 4;
+
+    .then(res => res.json())
+    .then(data => {
+        const atores = data.cast;
+        const tamanhoDoCarousel = 4;
         let contadorDeSlides = 0;
 
-        for (let i = 0; i < listaDeAtores.length; i += tamanhoDoGrupo) {
+        for (let i = 0; i < atores.length; i += tamanhoDoCarousel) {
             let htmlDoSlide = `<div class="carousel-item ${contadorDeSlides === 0 ? 'active' : ''}">`;
             contadorDeSlides++;
 
             htmlDoSlide += `<div class="row text-center">`;
-            for (let j = i; j < i + tamanhoDoGrupo && j < listaDeAtores.length; j++) {
-                const ator = listaDeAtores[j];
+            for (let j = i; j < i + tamanhoDoCarousel && j < atores.length; j++) {
+                const ator = atores[j];
                 htmlDoSlide += `
                     <div class="col-md-6 col-lg-3 mb-4">
                         <div class="card">
@@ -91,4 +89,58 @@ function carregarElenco(id) {
     .catch(erro => {
         console.error('Erro ao buscar o elenco da série:', erro);
     });
+}
+
+function favoritarSerie(id, plataforma) {
+    const URL = `https://api.themoviedb.org/3/tv/${id}?&language=pt-BR`;
+
+    fetch(URL, {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${API_TOKEN}`
+        }
+    })
+    .then(res => res.json())
+    .then(series => {
+        const novoFavorito = {
+            nomeSerie: series.name,
+            dataSerie: series.first_air_date,
+            seriePlataforma: plataforma,
+        };
+
+        fetch('/favoritos')
+            .then(res => res.json())
+            .then(favoritos => {
+                let jaFavoritado = false;
+                for (let i = 0; i < favoritos.length; i++) {
+                    if (favoritos[i].nomeSerie === novoFavorito.nomeSerie) {
+                        jaFavoritado = true;
+                        break;
+                    }
+                }
+
+                if (jaFavoritado) {
+                    alert('Essa série já está nos seus favoritos!');
+                } else {
+                    fetch('/favoritos', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(novoFavorito),
+                    })
+                    .then(res => {
+                        if (res.ok) {
+                            console.log('Série favoritada com sucesso!');
+                        } else {
+                            console.error('Erro ao favoritar a série:', res.statusText);
+                        }
+                    })
+                    .catch(erro => console.error('Erro ao processar os dados da série:', erro));
+                }
+            })
+            .catch(erro => console.error('Erro ao verificar favoritos:', erro));
+    })
+    .catch(erro => console.error('Erro ao buscar os dados da série:', erro));
 }
