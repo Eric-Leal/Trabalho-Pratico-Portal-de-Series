@@ -1,57 +1,133 @@
-
 .carousel-caption a {
     text-decoration: none;
     color: white;
 }
 
 .carousel-caption a:hover {
-    color: #ccc;
+    color: #ff31e4; /* Azul vibrante para o hover */
 }
+
 .carouseldesc {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 188, 212, 0.8); /* Azul vibrante com transparência */
     color: white; 
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block; 
     margin: 0;
-  }
+    border-radius: 25px;
+}
 
-.carousel-item img{
+.carousel-item img {
     object-position: top;
     height: 500px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 25px;
 }
-header{
+
+header {
     position: fixed;
     width: 100%;
     z-index: 1000;
+    background-color: #ffffff; /* Fundo branco sólido */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar */
 }
 
-main{
+.navbar .nav-link {
+    color: #f69ae9; /* Rosa para os links da navbar */
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #00bcd4; /* Azul vibrante ao passar o mouse */
+}
+
+
+main {
     padding-top: 80px;
 }
+
 .card-img-top {
     height: 200px; 
     object-fit: cover; 
 }
 
-.data  {
+.data {
     font-size: 15px;
 }
 
-.linha{
+.linha {
     border: 0; 
     height: 2px; 
-    background-color: black;
+    background-color: #00bcd4; /* Azul vibrante para o separador */
     margin: 10px 0; 
 }
-.perfil{
+
+.perfil {
     object-fit: cover;
 }
-.sobre{
+
+.sobre {
     font-weight: bold;
+    color: #00bcd4; /* Azul vibrante para o título "Sobre" */
 }
-.destaque{
-    color: rgb(0, 162, 255);
+
+.destaque {
+    color: #f69ae9; /* Rosa para destaques */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 400px;
+    min-height: 400px;
+    margin-bottom: 10px;
+    border: 2px solid #f69ae9;
+    border-radius: 25px;
+}
+
+.card-img-top {
+    height: 200px;
+    border: 2px solid #f69ae9; 
+    object-fit: cover; 
+    border-radius: 22px;
+    width: 100%; 
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    flex-grow: 1;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card-body .btn {
+    margin-top: auto;
+    background-color: #00bcd4; /* Azul vibrante para os botões */
+    color: white; /* Texto do botão em branco */
+    border: none; /* Remove a borda padrão */
+    transition: background-color 0.3s ease; 
+    border-radius: 25px;
+}
+
+.card-body .btn:hover {
+    background-color: #f69ae9; /* Rosa claro ao passar o mouse */
+}
+
+.card-body .btn:active {
+    background-color: #cc3399; /* Rosa mais escuro ao clicar */
 }

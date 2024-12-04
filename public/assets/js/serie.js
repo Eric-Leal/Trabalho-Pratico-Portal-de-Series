@@ -104,6 +104,7 @@ function favoritarSerie(id, plataforma) {
     .then(res => res.json())
     .then(series => {
         const novoFavorito = {
+            idSerie: series.id,
             nomeSerie: series.name,
             dataSerie: series.first_air_date,
             seriePlataforma: plataforma,
