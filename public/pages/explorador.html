@@ -35,26 +35,48 @@
                             <label for="searchSeries" class="form-label">Buscar por Série</label>
                             <input type="text" class="form-control" id="searchSeries" placeholder="Digite o nome da série">
                         </div>
-                        <button type="button" class="btn btn-primary mb-3 w-100">Pesquisar</button>
+                        <button id="searchBtn" type="button" class="btn btn-primary mb-3 w-100">Pesquisar</button>
 
                         <!-- Filtros por Categorias -->
                         <h5>Categorias</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="genre1">
-                            <label class="form-check-label" for="genre1">Ação</label>
+                        <div class="mb-3 categorias-container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex flex-wrap">
+                                        <!-- Filtro de Ação -->
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre1">
+                                            <label class="form-check-label" for="genre1">Ação</label>
+                                        </div>
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre2">
+                                            <label class="form-check-label" for="genre2">Comédia</label>
+                                        </div>
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre3">
+                                            <label class="form-check-label" for="genre3">Drama</label>
+                                        </div>
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre4">
+                                            <label class="form-check-label" for="genre4">Fantasia</label>
+                                        </div>
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre5">
+                                            <label class="form-check-label" for="genre5">Mistério</label>
+                                        </div>
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre6">
+                                            <label class="form-check-label" for="genre6">Animação</label>
+                                        </div>
+                                        <div class="form-check me-3">
+                                            <input class="form-check-input categoria" type="checkbox" value="" id="genre7">
+                                            <label class="form-check-label" for="genre7">Crime</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="genre2">
-                            <label class="form-check-label" for="genre2">Comédia</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="genre3">
-                            <label class="form-check-label" for="genre3">Drama</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="genre4">
-                            <label class="form-check-label" for="genre4">Fantasia</label>
-                        </div>
+
                     </aside>
                 </main>
             </div>
@@ -64,6 +86,16 @@
                 <div class="series container-fluid p-0">
                     <div id="cardsExplorador" class="row text-center">
                         <!-- Cards irão aqui -->
+                    </div>
+                </div>
+
+                <!-- Botões de navegação -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <button id="prevPageBtn" class="btn btn-secondary w-100" disabled>Anterior</button>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button id="nextPageBtn" class="btn btn-secondary w-100">Próxima</button>
                     </div>
                 </div>
             </div>

@@ -65,6 +65,7 @@ async function carregarSeries(filtroPesquisa = false) {
 
         // Enquanto não tiver 18 séries, carrega mais da próxima página
         while (seriesParaExibir.length < limitePorPagina) {
+            // Garantir que não ultrapasse o limite da página
             const urlProximaPagina = `${URL}trending/tv/week?language=pt-BR&page=${paginaAtualBusca}`;
             const responseProximaPagina = await fetch(urlProximaPagina, {
                 method: 'GET',
@@ -81,48 +82,29 @@ async function carregarSeries(filtroPesquisa = false) {
                 return categoriasSelecionadas.every(cat => serie.genre_ids.includes(cat));
             });
 
+            // Adicionar as séries da página à lista
             seriesParaExibir = [...seriesParaExibir, ...seriesPagina];
 
             if (paginaAtualBusca >= dataProximaPagina.total_pages || seriesParaExibir.length >= limitePorPagina) break;
-            paginaAtualBusca++;
+            paginaAtualBusca++; // Incrementa para carregar a próxima página
         }
 
+        // Limitar a exibição a 18 séries
         seriesParaExibir = seriesParaExibir.slice(0, limitePorPagina);
 
+        // Se não houver séries que correspondem aos filtros, não mostrar nada
         if (seriesParaExibir.length === 0) {
-            document.getElementById('cardsExplorador').innerHTML = ''; 
+            document.getElementById('cardsExplorador').innerHTML = ''; // Deixa o espaço de cards vazio
             return;
         }
 
+        // Log mostrando quais séries estão sendo carregadas
         console.log("Séries carregadas para a página " + paginaAtual + ":", seriesParaExibir.map(serie => serie.name));
 
-        // Carregar detalhes da série para pegar as plataformas
-        const seriesComPlataformas = await Promise.all(seriesParaExibir.map(async serie => {
-            const detalhesResponse = await fetch(`${URL}tv/${serie.id}?language=pt-BR`, {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: `Bearer ${API_TOKEN}`
-                }
-            });
-
-            const serieDetalhada = await detalhesResponse.json();
-
-            // Obter a plataforma de transmissão
-            const plataformas = serieDetalhada.networks.length > 0
-                ? serieDetalhada.networks[0].name
-                : 'Sem plataforma disponível';
-
-            // Retornar os dados da série com a plataforma
-            return {
-                ...serie,
-                plataforma: plataformas
-            };
-        }));
-
         // Atualizar os cards na interface
-        renderizarSeries(seriesComPlataformas);
+        renderizarSeries(seriesParaExibir);
 
+        // Configurar botões de paginação
         document.getElementById('prevPageBtn').disabled = paginaAtual === 1;
         document.getElementById('nextPageBtn').disabled = paginaBusca >= data.total_pages;
 
@@ -140,7 +122,12 @@ function renderizarSeries(series) {
     cardsContainer.innerHTML = '';
 
     const cardsHTML = series.map(serie => {
-        const plataformas = serie.plataforma;
+        console.log('Networks:', serie.networks);  // Verificando o conteúdo de networks
+
+        // Usar a lógica segura para buscar a plataforma
+        let plataformas = Array.isArray(serie.networks) && serie.networks.length > 0
+            ? serie.networks[0].name
+            : 'Sem plataforma disponível';
 
         return `
             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -163,6 +150,7 @@ function renderizarSeries(series) {
 function obterCategoriasSelecionadas() {
     const categoriasSelecionadas = [];
 
+    // Categorias selecionadas pelos checkboxes
     if (document.getElementById('genre1').checked) categoriasSelecionadas.push(28);  // Ação
     if (document.getElementById('genre2').checked) categoriasSelecionadas.push(35);  // Comédia
     if (document.getElementById('genre3').checked) categoriasSelecionadas.push(18);  // Drama

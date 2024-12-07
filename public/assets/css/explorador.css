@@ -1,18 +1,20 @@
-.linha{
-    border: 0; 
-    height: 2px; 
-    background-color: black;
-    margin: 10px 0; 
-}
-header{
+header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    
 }
-main{
+
+.linha {
+    border: 0;
+    height: 2px;
+    background-color: black;
+    margin: 10px 0;
+}
+
+main {
     margin-top: 100px;
 }
+
 .series {
     margin-top: 0;
 }
@@ -24,57 +26,135 @@ main{
 }
 
 .card {
-    height: 400px; 
+    height: 400px;
 }
 
 .card-img-top {
-    height: 200px; 
-    object-fit: cover; 
+    height: 200px;
+    object-fit: cover;
 }
-.data{
+
+.data {
     font-size: 14px;
 }
 
 .card {
     min-height: 400px;
-    max-height: 400px; 
+    max-height: 400px;
     display: flex;
     flex-direction: column;
 }
 
 .card-img-top {
-    min-height: 200px; 
+    min-height: 200px;
     max-height: 200px;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .form-check {
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Diminui o espaçamento entre os filtros */
 }
 
 button.btn {
     margin-top: 15px;
+    font-size: 14px;
+    padding: 8px 12px; /* Botão com padding menor */
+    width: 100%; /* Garante que os botões tenham a mesma largura */
+    box-sizing: border-box; /* Garante que o padding não afete a largura do botão */
 }
 
 aside.card {
     background-color: #f8f9fa;
     border-radius: 8px;
-    padding: 20px;
+    padding: 15px; /* Diminui o padding do aside */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-height: none;
+    overflow-y: auto;
 }
 
-
-.form-label, .form-check-label {
-    font-size: 18px; 
+/* Filtros com Flexbox */
+.filtro-categorias {
+    margin-bottom: 15px;
 }
 
+.categorias-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se ajustem para a linha seguinte */
+    gap: 1rem; /* Espaçamento entre os itens */
+}
 
+.categoria {
+    width: calc(50% - 0.5rem); /* Garante 2 itens por linha */
+    flex-basis: calc(50% - 0.5rem); /* Controla a largura de cada item */
+}
 
+.form-check-input {
+    display: none; /* Esconde a caixa de seleção padrão */
+}
 
+.form-check-label {
+    display: block;
+    padding: 10px 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 14px;
+    text-align: center;
+}
+
+.form-check-label:hover {
+    background-color: #d6d8db;
+}
+
+.form-check-input:checked + .form-check-label {
+    background-color: #08a8c9;
+    color: white;
+    transform: scale(1.05);
+}
+
+.form-check-label {
+    min-width: 100%;
+}
+
+/* Ajuste de responsividade para telas pequenas */
+@media (max-width: 576px) {
+    .categorias-container .form-check {
+        width: 100%; /* Apenas 1 item por linha em telas pequenas */
+    }
+}
+
+/* Estilo para os campos de pesquisa e botão */
+#searchSeries {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#searchBtn {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #08a8c9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box; /* Impede que o padding afete a largura do botão */
+}
+
+#searchBtn:hover {
+    background-color: #007b8b;
+}
 
