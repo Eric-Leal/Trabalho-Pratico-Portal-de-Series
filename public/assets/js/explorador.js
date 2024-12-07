@@ -9,11 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Evento para os checkboxes de categoria
-    document.querySelectorAll('.form-check-input').forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
+    const checkboxes = document.querySelectorAll('.form-check-input');
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', () => {
             carregarSeries(); // Carregar as séries com base nas categorias selecionadas
         });
-    });
+    }
 });
 
 const URL = 'https://api.themoviedb.org/3/';
@@ -43,11 +44,17 @@ function carregarSeries(filtroPesquisa = false) {
     const nomeSerie = document.getElementById('searchSeries').value.trim();
     const categoriasSelecionadas = obterCategoriasSelecionadas();
 
-    let url = `${URL}trending/tv/week?language=pt-BR&page=1`;
+    let url = `${URL}discover/tv?include_adult=false&language=pt-BR&page=1&sort_by=vote_average.desc&vote_count.gte=200`; // URL com parâmetros fornecidos
 
     // Se houver filtro de pesquisa por nome
     if (filtroPesquisa && nomeSerie) {
-        url = `${URL}search/tv?query=${nomeSerie}&language=pt-BR&page=1`;
+        url = `${URL}search/tv?query=${nomeSerie}&language=pt-BR&page=1`; // URL para pesquisa por nome
+    }
+
+    // Adicionando filtros de gênero à URL diretamente no fetch
+    if (categoriasSelecionadas.length > 0) {
+        const genreParam = categoriasSelecionadas.join(',');
+        url += `&with_genres=${genreParam}`;
     }
 
     fetch(url, {
@@ -61,15 +68,23 @@ function carregarSeries(filtroPesquisa = false) {
     .then(data => {
         let str = '';
 
-        data.results.forEach(serie => {
+        for (let i = 0; i < 12; i++) {
+            const serie = data.results[i];
+
             // Filtra pelas categorias selecionadas, se houver
             if (categoriasSelecionadas.length > 0) {
                 const genres = serie.genre_ids || [];
-                const matchGenres = categoriasSelecionadas.every(cat => genres.includes(cat));
-                if (!matchGenres) return; // Ignora se não tiver match com as categorias
+                let matchGenres = true;
+                for (let j = 0; j < categoriasSelecionadas.length; j++) {
+                    if (!genres.includes(categoriasSelecionadas[j])) {
+                        matchGenres = false;
+                        break;
+                    }
+                }
+                if (!matchGenres) continue; // Ignora se não tiver match com as categorias
             }
 
-            fetch(`${URL}/tv/${serie.id}?&language=pt-BR`, {
+            fetch(`${URL}tv/${serie.id}?&language=pt-BR`, {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
@@ -100,13 +115,12 @@ function carregarSeries(filtroPesquisa = false) {
             .catch(error => {
                 console.error('Erro ao carregar detalhes das séries:', error);
             });
-        });
+        }
     })
     .catch(error => {
         console.error('Erro ao buscar as séries:', error);
     });
 }
-
 
 function obterCategoriasSelecionadas() {
     const categoriasSelecionadas = [];
