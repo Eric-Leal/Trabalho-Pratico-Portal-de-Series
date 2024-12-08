@@ -71,8 +71,6 @@ main {
     color: #f69ae9;
 }
 
-
-
 .card {
     display: flex;
     flex-direction: column;
@@ -149,16 +147,12 @@ main {
     background-color: #ff31e4 !important;
 }
 
-
-
 #carouselSeriesFavoritas .carousel-item img {
     width: 100%;
     height: 200px; 
     object-fit: cover;
     border-radius: 22px; 
 }
-
-
 
 @media (min-width: 768px) and (max-width: 991px) {
 
@@ -170,9 +164,7 @@ main {
         width: 100%;
     }
 
-    #carouselSeriesFavoritas .carousel-item .col-lg-3,
-    #carouselSeriesFavoritas .carousel-item .col-md-6,
-    #carouselSeriesFavoritas .carousel-item .col-sm-6 {
+    #carouselSeriesFavoritas .carousel-item .col-lg-3, #carouselSeriesFavoritas .carousel-item .col-md-6, #carouselSeriesFavoritas .carousel-item .col-sm-6 {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -186,6 +178,7 @@ main {
         max-width: 270px;  
     }
 }
+
 .destaque {
   font-weight: bold;
   font-size: 1.1em;

@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('ID da série não encontrado');
     }
     
-    // Inicializando o botão favoritar/desfavoritar
     const btnFavoritar = document.getElementById('btnFavoritarSerie');
     btnFavoritar.addEventListener('click', () => {
         const plataforma = document.getElementById('plataforma').textContent.replace('Plataforma: ', '');
@@ -125,18 +124,14 @@ function carregarElenco(id) {
                 htmlConteudo += htmlDoSlide;
             }
 
-            // Atualizando o conteúdo do carrossel
             document.getElementById('carouselActors').innerHTML = htmlConteudo;
         }
 
-        // Cria o carrossel inicialmente
         criarCarrossel();
 
-        // Atualiza o carrossel sempre que a tela for redimensionada
         window.addEventListener('resize', () => {
             const novoTamanhoDoCarousel = ajustarTamanhoDoCarousel();
 
-            // Se o tamanho mudou, recalcula o carrossel
             if (novoTamanhoDoCarousel !== tamanhoDoCarousel) {
                 tamanhoDoCarousel = novoTamanhoDoCarousel;
                 criarCarrossel();

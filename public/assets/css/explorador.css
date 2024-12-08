@@ -50,9 +50,9 @@ main {
     border-radius: 25px;
 }
 #searchSeries:focus {
-    border-color: #f69ae9; /* Define a borda rosa */
-    outline: none; /* Remove o contorno padrão */
-    box-shadow: 0 0 5px rgba(246, 154, 233, 0.8); /* Adiciona um leve sombreado rosa ao redor */
+    border-color: #f69ae9; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(246, 154, 233, 0.8); 
     border-width: 2px;
 }
 .card-body {
@@ -153,16 +153,6 @@ aside.card {
 #searchBtn:hover {
     background-color: #007b8b;
 }
-
-/* .card-img-top.placeholder-img {
-    width: 70%; 
-    height: auto; 
-    max-height: 200px; 
-    object-fit: cover; 
-    object-position: center; 
-    margin: 0 auto; 
-    display: block; 
-} */
 
 button.btnAnterior,
 button.btnProximo {

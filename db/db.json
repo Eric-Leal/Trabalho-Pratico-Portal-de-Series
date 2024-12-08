@@ -1,20 +1,12 @@
 {
-  "favoritos": [
+  "favoritos": [],
+  "aluno": [
     {
-      "idSerie": 225385,
-      "nomeSerie": "Black Doves",
-      "dataSerie": "2024-12-05",
-      "seriePlataforma": "Netflix",
+      "nome": "Eric Gregório Leal",
+      "curso": "Engenharia de Software",
+      "turma": "Manhã",
+      "sobre": "Meu nome é Eric, sou de Belo Horizonte, MG. Tenho 19 anos e atualmente estou cursando Engenharia de Software na PUC Minas.",
       "id": 1
-    }
-  ],
-  "aluno":[
-    {
-    "nome": "Eric Gregório Leal",
-    "curso": "Engenharia de Software",
-    "turma": "Manhã",
-    "sobre": "Meu nome é Eric, sou de Belo Horizonte, MG. Tenho 19 anos e atualmente estou cursando Engenharia de Software na PUC Minas.",
-    "id": 1
     }
   ]
 }

@@ -119,7 +119,6 @@ main{
 
 }
 
-/* Alinhamento e organização do conteúdo no layout */
 @media (max-width: 768px) {
     .row {
         flex-direction: column;
@@ -129,7 +128,7 @@ main{
     .col-lg-9 {
         min-width: 100%;
         max-width: 100%;
-        text-align: left; /* Alinhando o texto à esquerda */
+        text-align: left; 
         padding: 0;
     }
 
@@ -140,29 +139,25 @@ main{
         box-sizing: border-box;
     }
 
-    /* Ajustes para os títulos e conteúdo */
     .col-lg-9 .align-self-center h2,
     .col-lg-9 .align-self-center p {
         width: 100%;
         margin: 0;
-        padding: 5px 0; /* Adiciona espaçamento entre os elementos */
+        padding: 5px 0; /
     }
 
-    /* Ajuste na classe destaque (para títulos de cada item) */
     .col-lg-9 .align-self-center .destaque {
         font-weight: bold;
-        display: inline-block; /* Garante que o título não ocupe toda a largura */
+        display: inline-block;
     }
 
-    /* Ajuste nos parágrafos para manter o layout consistente */
     .col-lg-9 .align-self-center p {
         margin-left: 0;
     }
 
-    /* Ajuste no espaçamento e alinhamento */
     .col-lg-9 .align-self-center .destaque + p {
         margin-top: 5px;
-        margin-bottom: 10px; /* Espaçamento entre os parágrafos */
+        margin-bottom: 10px;
     }
 }
 

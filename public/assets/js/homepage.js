@@ -9,8 +9,8 @@ const URL = 'https://api.themoviedb.org/3/';
 import API_TOKEN from '../js/config.js';
 
 function carregarInformacoesAluno() {
-    fetch('/aluno/1')  // Chama o endpoint '/aluno' para pegar os dados do aluno
-    .then(res => res.json()) // Converte a resposta em JSON
+    fetch('/aluno/1')  
+    .then(res => res.json())
     .then(dados => {
         console.log(dados);
 
@@ -20,7 +20,6 @@ function carregarInformacoesAluno() {
         const sobre = dados.sobre;
         const id = dados.id;
 
-        // Verifique se os elementos existem antes de preenchê-los
         const nomeAluno = document.getElementById('nomeAluno');
         const cursoAluno = document.getElementById('cursoAluno');
         const turmaAluno = document.getElementById('turmaAluno');
@@ -51,8 +50,8 @@ function carouselSeries() {
         let str = '';
         for (let i = 0; i < 4; i++) {
             let serie = data.results[i];
-            const imagem = serie.backdrop_path ? `https://image.tmdb.org/t/p/original${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; // Placeholder caso não tenha imagem
-            const imageClass = (serie.backdrop_path) ? '' : 'placeholder-image'; // Aplica a classe apenas se for o placeholder
+            const imagem = serie.backdrop_path ? `https://image.tmdb.org/t/p/original${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; 
+            const imageClass = (serie.backdrop_path) ? '' : 'placeholder-image'; 
             str += `
                 <div class="carouselSerie carousel-item ${i === 0 ? 'active' : ''} ">
                     <img src="${imagem}" class="d-block w-100 ${imageClass}" alt="${serie.name}">
@@ -87,8 +86,8 @@ function novasSeries() {
         let str = '';
         for (let i = 0; i < 4; i++) {
             let serie = data.results[i];
-            const imagem = serie.backdrop_path ? `https://image.tmdb.org/t/p/w500${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; // Placeholder caso não tenha imagem
-            const imageClass = (serie.backdrop_path) ? '' : 'placeholder-image'; // Aplica a classe apenas se for o placeholder
+            const imagem = serie.backdrop_path ? `https://image.tmdb.org/t/p/w500${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; 
+            const imageClass = (serie.backdrop_path) ? '' : 'placeholder-image'; 
             fetch(`${URL}/tv/${serie.id}?&language=pt-BR`, {
                 method: 'GET',
                 headers: {
@@ -135,6 +134,24 @@ function seriesFavoritas() {
         let indicatorsStr = '';
         let count = 0;
 
+        const carouselControls = document.querySelectorAll('.carousel-control-prev, .carousel-control-next');
+
+        if (favoritos.length <= 4) {
+
+            if (carouselControls) {
+                carouselControls.forEach(control => {
+                    control.style.display = 'none';
+                });
+            }
+        } else {
+
+            if (carouselControls) {
+                carouselControls.forEach(control => {
+                    control.style.display = 'block';
+                });
+            }
+        }
+
         if (favoritos.length === 0) {
 
             str = `<div class="col-12 text-center">
@@ -172,8 +189,8 @@ function seriesFavoritas() {
             })
             .then(res => res.json())
             .then(series => {
-                const imagem = series.backdrop_path ? `https://image.tmdb.org/t/p/w500${series.backdrop_path}` : '../assets/images/LogoImageTestered.png'; // Placeholder caso não tenha imagem
-                const imageClass = (series.backdrop_path) ? '' : 'placeholder-image'; // Aplica a classe apenas se for o placeholder
+                const imagem = series.backdrop_path ? `https://image.tmdb.org/t/p/w500${series.backdrop_path}` : '../assets/images/LogoImageTestered.png';
+                const imageClass = (series.backdrop_path) ? '' : 'placeholder-image'; 
                 let plataformas = series.networks.length > 0 ? series.networks[0].name : 'Indisponível';
 
                 const card = `
@@ -194,14 +211,14 @@ function seriesFavoritas() {
                     if (count > 0) {
                         str += `</div>`; 
                     }
-                    str += `<div class="carousel-item ${i === 0 ? 'active' : ''}"><div class="row">` ;
+                    str += `<div class="carousel-item ${i === 0 ? 'active' : ''}"><div class="row">`;
                 }
 
                 str += card;
                 count++;
 
                 if (count % tamanhoDoCarousel === 0 || i === favoritos.length - 1) {
-                    str += `</div></div>` ;
+                    str += `</div></div>`;
                 }
 
                 indicatorsStr += `
