@@ -113,7 +113,6 @@ main{
     .card {
         width: 100%;
         text-align: center;
-        padding: 20px; 
         box-sizing: border-box;
     }
 
@@ -135,7 +134,6 @@ main{
     .card {
         width: 100%;
         text-align: center;
-        padding: 20px;
         box-sizing: border-box;
     }
 
@@ -162,3 +160,11 @@ main{
 }
 
 
+.card-elenco {
+
+    height: 350px;
+}
+.card {
+
+    height: 100%;
+}

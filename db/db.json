@@ -1,5 +1,13 @@
 {
-  "favoritos": [],
+  "favoritos": [
+    {
+      "idSerie": 222766,
+      "nomeSerie": "O Dia do Chacal",
+      "dataSerie": "2024-11-07",
+      "seriePlataforma": "Sky Atlantic, Sky Showcase",
+      "id": 4
+    }
+  ],
   "aluno": [
     {
       "nome": "Eric Gregório Leal",

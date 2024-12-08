@@ -218,3 +218,13 @@ main {
 .informacoes-aluno .mb-2 {
   margin-bottom: 0.5rem; 
 }
+
+.placeholder-img {
+
+    object-fit: contain!important;
+
+}
+#carouselSeriesFavoritas .carousel-item img {
+    border: 2px solid #f69ae9;
+    
+}

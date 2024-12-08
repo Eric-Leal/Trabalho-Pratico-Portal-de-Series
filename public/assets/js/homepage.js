@@ -12,7 +12,6 @@ function carregarInformacoesAluno() {
     fetch('/aluno/1')  
     .then(res => res.json())
     .then(dados => {
-        console.log(dados);
 
         const nome = dados.nome;
         const curso = dados.curso;
@@ -51,7 +50,7 @@ function carouselSeries() {
         for (let i = 0; i < 4; i++) {
             let serie = data.results[i];
             const imagem = serie.backdrop_path ? `https://image.tmdb.org/t/p/original${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; 
-            const imageClass = (serie.backdrop_path) ? '' : 'placeholder-image'; 
+            const imageClass = serie.backdrop_path ? 'card-img-top' : 'card-img-top placeholder-img';
             str += `
                 <div class="carouselSerie carousel-item ${i === 0 ? 'active' : ''} ">
                     <img src="${imagem}" class="d-block w-100 ${imageClass}" alt="${serie.name}">
@@ -87,7 +86,7 @@ function novasSeries() {
         for (let i = 0; i < 4; i++) {
             let serie = data.results[i];
             const imagem = serie.backdrop_path ? `https://image.tmdb.org/t/p/w500${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; 
-            const imageClass = (serie.backdrop_path) ? '' : 'placeholder-image'; 
+            const imageClass = serie.backdrop_path ? 'card-img-top' : 'card-img-top placeholder-img';
             fetch(`${URL}/tv/${serie.id}?&language=pt-BR`, {
                 method: 'GET',
                 headers: {
@@ -189,8 +188,8 @@ function seriesFavoritas() {
             })
             .then(res => res.json())
             .then(series => {
-                const imagem = series.backdrop_path ? `https://image.tmdb.org/t/p/w500${series.backdrop_path}` : '../assets/images/LogoImageTestered.png';
-                const imageClass = (series.backdrop_path) ? '' : 'placeholder-image'; 
+                const imagem = series.backdrop_path ? `https://image.tmdb.org/t/p/w500${series.backdrop_path}` : '../assets/images/LogoImageTeste.png';
+                const imageClass = series.backdrop_path ? 'card-img-top' : 'card-img-top placeholder-img';
                 let plataformas = series.networks.length > 0 ? series.networks[0].name : 'Indisponível';
 
                 const card = `

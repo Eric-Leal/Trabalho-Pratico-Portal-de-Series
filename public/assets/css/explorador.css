@@ -181,3 +181,7 @@ button.btnProximo:disabled {
     background-color: #1b484e;
     cursor: not-allowed;
 }
+
+.placeholder-img {
+    object-fit: contain;
+}

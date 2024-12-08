@@ -32,7 +32,6 @@ function carregarDadosSerie(id) {
     })
     .then(res => res.json())
     .then(dados => {
-        console.log(dados); 
         let plataforma = dados.networks.map(rede => rede.name).join(', ');
 
         document.getElementById('nomeSerie').innerText = dados.name;
@@ -80,7 +79,6 @@ function carregarElenco(id) {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data); 
         const atores = data.cast;
 
         function ajustarTamanhoDoCarousel() {
