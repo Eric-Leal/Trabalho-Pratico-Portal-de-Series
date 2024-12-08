@@ -1,46 +1,20 @@
 {
   "favoritos": [
     {
-      "idSerie": 1396,
-      "nomeSerie": "Breaking Bad: A Química do Mal",
-      "dataSerie": "2008-01-20",
-      "seriePlataforma": "AMC",
+      "idSerie": 225385,
+      "nomeSerie": "Black Doves",
+      "dataSerie": "2024-12-05",
+      "seriePlataforma": "Netflix",
       "id": 1
-    },
+    }
+  ],
+  "aluno":[
     {
-      "idSerie": 94605,
-      "nomeSerie": "Arcane",
-      "dataSerie": "2021-11-06",
-      "seriePlataforma": "Netflix",
-      "id": 2
-    },
-    {
-      "idSerie": 211039,
-      "nomeSerie": "Senna",
-      "dataSerie": "2024-11-29",
-      "seriePlataforma": "Netflix",
-      "id": 3
-    },
-    {
-      "idSerie": 94954,
-      "nomeSerie": "Hotel Hazbin",
-      "dataSerie": "2024-01-18",
-      "seriePlataforma": "Prime Video",
-      "id": 4
-    },
-    {
-      "idSerie": 226529,
-      "nomeSerie": "Light Shop: Entre a Vida e a Morte",
-      "dataSerie": "2024-12-04",
-      "seriePlataforma": "Disney+",
-      "id": 5
-    },
-    {
-      "idSerie": 202879,
-      "nomeSerie": "Star Wars: Skeleton Crew",
-      "dataSerie": "2024-12-02",
-      "seriePlataforma": "Disney+",
-      "id": 6
+    "nome": "Eric Gregório Leal",
+    "curso": "Engenharia de Software",
+    "turma": "Manhã",
+    "sobre": "Meu nome é Eric, sou de Belo Horizonte, MG. Tenho 19 anos e atualmente estou cursando Engenharia de Software na PUC Minas.",
+    "id": 1
     }
   ]
 }

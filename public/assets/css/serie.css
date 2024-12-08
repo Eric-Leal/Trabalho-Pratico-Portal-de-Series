@@ -1,20 +1,29 @@
-.carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: black; 
-    border-radius: 10%; 
-    
-}
-header{
+
+header {
     position: fixed;
     width: 100%;
     z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
+
+.navbar .nav-link {
+    color: #00bcd4;;
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #f69ae9; 
+}
+
 main{
     padding-top: 80px;
 }
-.linha{
+
+.linha {
     border: 0; 
     height: 2px; 
-    background-color: black;
+    background-color: #00bcd4;
     margin: 10px 0; 
 }
 
@@ -22,15 +31,50 @@ main{
     font-weight: bold;
 }
 
+.containerVisao img {
+    border: 4px solid #f69ae9;
+    border-radius: 25px;
+    margin-left: -15px;
+}
+
+
 .elenco-img {
     max-height: 250px;
     height: 250px;
     object-fit: cover;
+    border-radius: 22px;
+    border: 2px solid #f69ae9;
+}
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #00bcd4;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+}
+
+#btnFavoritarSerie {
+    background-color: #00bcd4;
+    border: 2px solid #00bcd4;
+}
+
+.carousel-control-prev:active, .carousel-control-next:active {
+    background-color: #f69ae9;
+}
+
+.carousel-indicators .active {
+    background-color: #ff31e4 !important;
 }
 
 .card {
     max-width: 300px; 
     margin: 10px;
+    border: 2px solid #f69ae9;
+    border-radius: 25px;
 }
 
 .capa-img {
@@ -38,3 +82,88 @@ main{
     height: 450px;     
     object-fit: cover; 
 }
+
+
+
+@media (max-width: 767px) {
+    .card-elenco {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center; 
+    }
+
+}
+
+@media (max-width: 768px) {
+    
+
+    .row {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .col-lg-9 {
+        min-width: 100%;
+        max-width: 100%; 
+        text-align: center; 
+        padding: 0; 
+    }
+
+  
+    .card {
+        width: 100%;
+        text-align: center;
+        padding: 20px; 
+        box-sizing: border-box;
+    }
+
+}
+
+/* Alinhamento e organização do conteúdo no layout */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-lg-9 {
+        min-width: 100%;
+        max-width: 100%;
+        text-align: left; /* Alinhando o texto à esquerda */
+        padding: 0;
+    }
+
+    .card {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Ajustes para os títulos e conteúdo */
+    .col-lg-9 .align-self-center h2,
+    .col-lg-9 .align-self-center p {
+        width: 100%;
+        margin: 0;
+        padding: 5px 0; /* Adiciona espaçamento entre os elementos */
+    }
+
+    /* Ajuste na classe destaque (para títulos de cada item) */
+    .col-lg-9 .align-self-center .destaque {
+        font-weight: bold;
+        display: inline-block; /* Garante que o título não ocupe toda a largura */
+    }
+
+    /* Ajuste nos parágrafos para manter o layout consistente */
+    .col-lg-9 .align-self-center p {
+        margin-left: 0;
+    }
+
+    /* Ajuste no espaçamento e alinhamento */
+    .col-lg-9 .align-self-center .destaque + p {
+        margin-top: 5px;
+        margin-bottom: 10px; /* Espaçamento entre os parágrafos */
+    }
+}
+
+

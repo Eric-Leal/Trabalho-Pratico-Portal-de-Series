@@ -1,105 +1,95 @@
 import API_TOKEN from '../js/config.js';
 
+const URL = 'https://api.themoviedb.org/3/';
+
+let currentPage = 1;
+let totalPages = 1; 
+let currentSearchTerm = '';
+
 document.addEventListener('DOMContentLoaded', () => {
     carregarSeries();
 
-    // Adicionando eventos aos elementos de filtro
     document.getElementById('searchBtn').addEventListener('click', () => {
-        carregarSeries(true); // Passa 'true' para indicar que é uma pesquisa
+        currentPage = 1; 
+        currentSearchTerm = document.getElementById('searchSeries').value.trim();
+        carregarSeries(true);
     });
 
-    // Evento para os checkboxes de categoria
     const checkboxes = document.querySelectorAll('.form-check-input');
     for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener('change', () => {
-            carregarSeries(); // Carregar as séries com base nas categorias selecionadas
+            currentPage = 1; 
+            carregarSeries();
         });
     }
+
+    document.getElementById('prevPageBtn').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            carregarSeries(currentSearchTerm !== '');
+        }
+    });
+
+    document.getElementById('nextPageBtn').addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            carregarSeries(currentSearchTerm !== '');
+        }
+    });
 });
 
-const URL = 'https://api.themoviedb.org/3/';
-
-let listaGeneros = [
-    { id: 28, name: 'Ação' },
-    { id: 35, name: 'Comédia' },
-    { id: 18, name: 'Drama' },
-    { id: 10765, name: 'Fantasia' },
-    { id: 80, name: 'Crime' },
-    { id: 10759, name: 'Aventura' },
-    { id: 99, name: 'Documentário' },
-    { id: 10751, name: 'Família' },
-    { id: 10762, name: 'Infantil' },
-    { id: 10763, name: 'Notícias' },
-    { id: 10764, name: 'Reality' },
-    { id: 10767, name: 'Talk Show' },
-    { id: 10402, name: 'Música' },
-    { id: 10752, name: 'Guerra' },
-    { id: 10768, name: 'História' }
-];
-
-// Para garantir que os gêneros estejam carregados corretamente, podemos logar a lista
-console.log('Lista de Gêneros:', listaGeneros);
-
 function carregarSeries(filtroPesquisa = false) {
-    const nomeSerie = document.getElementById('searchSeries').value.trim();
     const categoriasSelecionadas = obterCategoriasSelecionadas();
 
-    let url = `${URL}discover/tv?include_adult=false&language=pt-BR&page=1&sort_by=vote_average.desc&vote_count.gte=200`; // URL com parâmetros fornecidos
+    let url = `${URL}discover/tv?include_adult=false&language=pt-BR&page=${currentPage}&sort_by=vote_average.desc&vote_count.gte=200`;
 
-    // Se houver filtro de pesquisa por nome
-    if (filtroPesquisa && nomeSerie) {
-        url = `${URL}search/tv?query=${nomeSerie}&language=pt-BR&page=1`; // URL para pesquisa por nome
+    if (filtroPesquisa && currentSearchTerm) {
+        url = `${URL}search/tv?query=${currentSearchTerm}&language=pt-BR&page=${currentPage}`;
     }
 
-    // Adicionando filtros de gênero à URL diretamente no fetch
     if (categoriasSelecionadas.length > 0) {
         const genreParam = categoriasSelecionadas.join(',');
         url += `&with_genres=${genreParam}`;
     }
 
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+
     fetch(url, {
         method: 'GET',
         headers: {
             accept: 'application/json',
-            Authorization: `Bearer ${API_TOKEN}`
-        }
+            Authorization: `Bearer ${API_TOKEN}`,
+        },
     })
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
+        totalPages = data.total_pages; 
+        atualizarBotoesNavegacao();
+
         let str = '';
 
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 12 && i < data.results.length; i++) {
             const serie = data.results[i];
 
-            // Filtra pelas categorias selecionadas, se houver
-            if (categoriasSelecionadas.length > 0) {
-                const genres = serie.genre_ids || [];
-                let matchGenres = true;
-                for (let j = 0; j < categoriasSelecionadas.length; j++) {
-                    if (!genres.includes(categoriasSelecionadas[j])) {
-                        matchGenres = false;
-                        break;
-                    }
-                }
-                if (!matchGenres) continue; // Ignora se não tiver match com as categorias
-            }
+            const imageUrl = serie.backdrop_path ? `https://image.tmdb.org/t/p/w500${serie.backdrop_path}` : '../assets/images/LogoImageTeste.png'; // Substitua './assets/placeholder-image.jpg' pelo caminho da sua imagem de placeholder local
+
+            const imageClass = serie.backdrop_path ? 'card-img-top' : 'card-img-top placeholder-img';
 
             fetch(`${URL}tv/${serie.id}?&language=pt-BR`, {
                 method: 'GET',
                 headers: {
                     accept: 'application/json',
-                    Authorization: `Bearer ${API_TOKEN}`
-                }
+                    Authorization: `Bearer ${API_TOKEN}`,
+                },
             })
-            .then(res => res.json())
-            .then(series => {
-                // Seleciona apenas a primeira plataforma (rede)
+            .then((res) => res.json())
+            .then((series) => {
                 let plataforma = series.networks.length > 0 ? series.networks[0].name : 'Não disponível';
-
                 str += `
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="card mb-3">
-                            <img src="https://image.tmdb.org/t/p/w500${serie.backdrop_path}" class="card-img-top" alt="${serie.name}">
+                            <img src="${imageUrl}" class="${imageClass}" alt="${serie.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${serie.name}</h5>
                                 <p class="card-text mb-0">${serie.first_air_date}</p>
@@ -109,15 +99,14 @@ function carregarSeries(filtroPesquisa = false) {
                         </div>
                     </div>
                 `;
-                
                 document.getElementById('cardsExplorador').innerHTML = str;
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Erro ao carregar detalhes das séries:', error);
             });
         }
     })
-    .catch(error => {
+    .catch((error) => {
         console.error('Erro ao buscar as séries:', error);
     });
 }
@@ -125,13 +114,23 @@ function carregarSeries(filtroPesquisa = false) {
 function obterCategoriasSelecionadas() {
     const categoriasSelecionadas = [];
 
-    // Verifica os checkboxes selecionados e associa com os IDs dos gêneros
-    if (document.getElementById('genre1').checked) categoriasSelecionadas.push(35); // Comédia
-    if (document.getElementById('genre2').checked) categoriasSelecionadas.push(18); // Drama
-    if (document.getElementById('genre3').checked) categoriasSelecionadas.push(10765); // Fantasia
-    if (document.getElementById('genre4').checked) categoriasSelecionadas.push(9648); // Mistério
-    if (document.getElementById('genre5').checked) categoriasSelecionadas.push(16); // Animação
-    if (document.getElementById('genre6').checked) categoriasSelecionadas.push(80); // Crime
+    if (document.getElementById('genre1').checked) categoriasSelecionadas.push(35);  // Comédia
+    if (document.getElementById('genre2').checked) categoriasSelecionadas.push(18);  // Drama
+    if (document.getElementById('genre3').checked) categoriasSelecionadas.push(10765);  // Fantasia
+    if (document.getElementById('genre4').checked) categoriasSelecionadas.push(9648);  // Mistério
+    if (document.getElementById('genre5').checked) categoriasSelecionadas.push(16);  // Animação
+    if (document.getElementById('genre6').checked) categoriasSelecionadas.push(80);  // Crime
+    if (document.getElementById('genre7').checked) categoriasSelecionadas.push(10759);  // Ação e Aventura
+    if (document.getElementById('genre8').checked) categoriasSelecionadas.push(99);  // Documentário
+    if (document.getElementById('genre9').checked) categoriasSelecionadas.push(10751);  // Família
+    if (document.getElementById('genre10').checked) categoriasSelecionadas.push(10762);  // Infantil
+    if (document.getElementById('genre11').checked) categoriasSelecionadas.push(10764);  // Reality
+
 
     return categoriasSelecionadas;
+}
+
+function atualizarBotoesNavegacao() {
+    document.getElementById('prevPageBtn').disabled = currentPage <= 1;
+    document.getElementById('nextPageBtn').disabled = currentPage >= totalPages;
 }

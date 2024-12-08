@@ -1,44 +1,40 @@
 .carousel-caption a {
     text-decoration: none;
     color: white;
+    background-color: #00bcd4;
+    border-radius: 25px;
+    padding: 5px 10px;
+    opacity: 1;
 }
 
 .carousel-caption a:hover {
-    color: #ff31e4; /* Azul vibrante para o hover */
+    color: #ff31e4; 
 }
 
-.carouseldesc {
-    background-color: rgba(0, 188, 212, 0.8); /* Azul vibrante com transparência */
-    color: white; 
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block; 
-    margin: 0;
-    border-radius: 25px;
-}
-
-.carousel-item img {
+ .carousel-item img {
     object-position: top;
     height: 500px;
     object-fit: cover;
     border-radius: 25px;
+    border: 4px solid #f69ae9;
+    
 }
 
 header {
     position: fixed;
     width: 100%;
     z-index: 1000;
-    background-color: #ffffff; /* Fundo branco sólido */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar */
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .navbar .nav-link {
-    color: #f69ae9; /* Rosa para os links da navbar */
+    color: #00bcd4;;
     font-weight: bold;
 }
 
 .navbar .nav-link:hover {
-    color: #00bcd4; /* Azul vibrante ao passar o mouse */
+    color: #f69ae9; 
 }
 
 
@@ -58,7 +54,7 @@ main {
 .linha {
     border: 0; 
     height: 2px; 
-    background-color: #00bcd4; /* Azul vibrante para o separador */
+    background-color: #00bcd4;
     margin: 10px 0; 
 }
 
@@ -68,12 +64,14 @@ main {
 
 .sobre {
     font-weight: bold;
-    color: #00bcd4; /* Azul vibrante para o título "Sobre" */
+    color: #00bcd4;
 }
 
 .destaque {
-    color: #f69ae9; /* Rosa para destaques */
+    color: #f69ae9;
 }
+
+
 
 .card {
     display: flex;
@@ -99,8 +97,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    
+    flex-grow: 1;
 }
 
 .card-title {
@@ -117,17 +114,114 @@ main {
 
 .card-body .btn {
     margin-top: auto;
-    background-color: #00bcd4; /* Azul vibrante para os botões */
-    color: white; /* Texto do botão em branco */
-    border: none; /* Remove a borda padrão */
+    background-color: #00bcd4;  
+    color: white;
+    border: none; 
     transition: background-color 0.3s ease; 
     border-radius: 25px;
 }
 
 .card-body .btn:hover {
-    background-color: #f69ae9; /* Rosa claro ao passar o mouse */
+    background-color: #f69ae9; 
 }
 
 .card-body .btn:active {
-    background-color: #cc3399; /* Rosa mais escuro ao clicar */
+    background-color: #cc3399;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #00bcd4;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+}
+
+.carousel-control-prev:active, .carousel-control-next:active {
+    background-color: #f69ae9;
+}
+
+.carousel-indicators .active {
+    background-color: #ff31e4 !important;
+}
+
+
+
+#carouselSeriesFavoritas .carousel-item img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 22px; 
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    #carouselSeriesFavoritas .carousel-item .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    #carouselSeriesFavoritas .carousel-item .col-lg-3,
+    #carouselSeriesFavoritas .carousel-item .col-md-6,
+    #carouselSeriesFavoritas .carousel-item .col-sm-6 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 1 auto;
+        max-width: 280px; 
+        width: 100%;  
+    }
+
+    #carouselSeriesFavoritas .carousel-item .card {
+        width: 100%;
+        max-width: 270px;  
+    }
+}
+.destaque {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.sobre {
+    font-weight: bold;
+}
+
+#nomeAluno, #cursoAluno, #turmaAluno {
+  font-weight: normal;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.ms-3 {
+  margin-left: 1rem; 
+}
+
+.text-start {
+  text-align: left; 
+}
+
+.informacoes-aluno {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+}
+
+.informacoes-aluno .mb-2 {
+  margin-bottom: 0.5rem; 
 }

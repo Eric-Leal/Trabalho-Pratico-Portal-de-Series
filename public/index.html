@@ -15,7 +15,7 @@
 
   <header>
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid ">
+      <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
           <img src="../assets/images/logo.png" alt="Bootstrap" width="50" height="50">
         </a>
@@ -26,8 +26,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link fs-5 fw-bold " href="../pages/explorador.html">Explorador</a>
-            </li>
+              <a class="nav-link fs-5 fw-bold" href="../pages/explorador.html">Explorador</a>
             </li>
           </ul>
         </div>
@@ -39,14 +38,13 @@
     <main>
       <div class="container px-0 mb-3">
         <h3>Séries Populares</h3>
-        <a class="nav-link fs-5 fw-bold " href="../pages/login.html">Explorador</a>
         <div class="linha mt-0 pt-0"></div>
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: #00bcd4; opacity: 1;"></button></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" style="background-color: #00bcd4; opacity: 1;"></button></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3" style="background-color: #00bcd4; opacity: 1;"></button></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4" style="background-color: #00bcd4; opacity: 1;"></button></button>
             </div>
             <div id="telaCarousel" class="carousel-inner">
                 <!-- O conteúdo do carrossel será preenchido dinamicamente aqui -->
@@ -61,13 +59,12 @@
             </button>
         </div>
     </div>
-    
 
       <!-- Cards Novas Series -->
-      <div class="container-fluid p-0 ">
+      <div class="container-fluid p-0">
         <h3>Novidades</h3>
-        <div class="linha mt-0 pt-0 "></div>
-        <div id="telaNovasSeries" class="row text-center ">
+        <div class="linha mt-0 pt-0"></div>
+        <div id="telaNovasSeries" class="row text-center">
             </div>
           </div>
         </div>
@@ -80,7 +77,7 @@
         <div class="row align-items-start">
           <div class="col-md-6">
             <h5 class="destaque">Sobre</h5>
-            <p>Meu nome é Eric, sou de Belo Horizonte, MG. Tenho 19 anos e atualmente estou cursando Engenharia de
+            <p id="sobreAluno">Meu nome é Eric, sou de Belo Horizonte, MG. Tenho 19 anos e atualmente estou cursando Engenharia de
               Software na PUC Minas.</p>
           </div>
           <div class="col-md-6 d-flex justify-content-md-end">
@@ -88,9 +85,18 @@
               <img src="../assets/images/Eric.jpeg" alt="Foto do Aluno" class="perfil img-fluid rounded-circle"
                 style="width: 100px; height: 100px;">
               <div class="ms-3 text-md-end text-start">
-                <p class="mb-0 text-md-start"><span class="sobre">Aluno:</span> Eric Gregório Leal</p>
-                <p class="mb-0 text-md-start"><span class="sobre">Curso:</span> Engenharia de Software</p>
-                <p class="mb-0 text-md-start"><span class="sobre">Turma:</span> Manhã</p>
+                
+                <div class="informacoes-aluno">
+                  <div class="mb-2">
+                    <span class="sobre">Nome: </span><span id="nomeAluno">Eric Gregório Leal</span>
+                  </div>
+                  <div class="mb-2">
+                    <span class="sobre">Curso: </span><span id="cursoAluno">Engenharia de Software</span>
+                  </div>
+                  <div class="mb-2">
+                    <span class="sobre">Turma: </span><span id="turmaAluno">Manhã</span>
+                  </div>
+                </div>
                 <div class="d-flex align-items-center mt-2">
                   <p class="destaque sobre mb-0 me-2">Redes Sociais:</p>
                   <div class="d-flex">
@@ -109,13 +115,23 @@
       </div>
 
       <!-- Cards Minhas Series -->
-        <div class="container">
-          <h3>Minhas Séries</h3>
-          <div class="linha mt-0 pt-0 "></div>
-          <div id="telaSeriesFavoritas" class="row text-center ">
-          
-          </div>
+      <div class="container">
+        <h3>Minhas Séries</h3>
+        <div class="linha mt-0 pt-0"></div>
+        <div id="carouselSeriesFavoritas" class="carousel slide" data-bs-ride="carousel">
+            <div id="telaSeriesFavoritas" class="carousel-inner">
+                <!-- O conteúdo do carrossel será preenchido dinamicamente aqui -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSeriesFavoritas" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselSeriesFavoritas" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+      </div>
     </div>
   </div>
   
