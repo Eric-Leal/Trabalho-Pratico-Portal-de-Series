@@ -1,0 +1,12 @@
+{
+  "favoritos": [],
+  "aluno": [
+    {
+      "nome": "Eric Gregório Leal",
+      "curso": "Engenharia de Software",
+      "turma": "Manhã",
+      "sobre": "Meu nome é Eric, sou de Belo Horizonte, MG. Tenho 19 anos e atualmente estou cursando Engenharia de Software na PUC Minas.",
+      "id": 1
+    }
+  ]
+}
