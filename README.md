@@ -2,6 +2,21 @@
 
 Portal web para explorar séries de TV usando a API do The Movie Database (TMDB).
 
+## 🚀 Configuração Rápida
+
+**⚠️ IMPORTANTE:** Antes de executar o projeto, você DEVE configurar o token da API.
+
+### Configuração Automática (Recomendado)
+```bash
+# Windows PowerShell
+.\setup.ps1
+
+# Linux/Mac
+./setup.sh
+```
+
+📋 **Para instruções detalhadas, consulte:** [SETUP.md](./SETUP.md)
+
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
