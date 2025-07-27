@@ -6,16 +6,10 @@ Portal web para explorar séries de TV usando a API do The Movie Database (TMDB)
 
 **⚠️ IMPORTANTE:** Antes de executar o projeto, você DEVE configurar o token da API.
 
-### Configuração Automática (Recomendado)
-```bash
-# Windows PowerShell
-.\setup.ps1
+### Guia de Instalação Completo
+📋 **Siga as instruções em:** [INSTALACAO.md](./INSTALACAO.md)
 
-# Linux/Mac
-./setup.sh
-```
-
-📋 **Para instruções detalhadas, consulte:** [SETUP.md](./SETUP.md)
+📋 **Para desenvolvedores, consulte:** [SETUP.md](./SETUP.md)
 
 ## 🚀 Como executar o projeto
 
@@ -57,21 +51,6 @@ Portal web para explorar séries de TV usando a API do The Movie Database (TMDB)
    http://localhost:3000
    ```
 
-## 📁 Estrutura do projeto
-
-```
-├── public/
-│   ├── index.html
-│   ├── assets/
-│   │   ├── css/          # Estilos CSS
-│   │   ├── js/           # Scripts JavaScript
-│   │   └── images/       # Imagens do projeto
-│   └── pages/            # Páginas HTML
-├── db/
-│   └── db.json          # Banco de dados local
-└── package.json
-```
-
 ## ⚠️ Importante
 
 - **Nunca commite o arquivo `config.js`** - ele contém informações sensíveis
@@ -85,11 +64,3 @@ Portal web para explorar séries de TV usando a API do The Movie Database (TMDB)
 - Buscar séries por nome
 - Visualizar detalhes das séries
 - Interface responsiva
-
-## 🛠️ Tecnologias utilizadas
-
-- HTML5
-- CSS3
-- JavaScript ES6+
-- The Movie Database API
-- Node.js (para servidor local)
