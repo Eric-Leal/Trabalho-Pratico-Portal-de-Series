@@ -9,8 +9,6 @@ Portal web para explorar séries de TV usando a API do The Movie Database (TMDB)
 ### Guia de Instalação Completo
 📋 **Siga as instruções em:** [INSTALACAO.md](./INSTALACAO.md)
 
-📋 **Para desenvolvedores, consulte:** [SETUP.md](./SETUP.md)
-
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
